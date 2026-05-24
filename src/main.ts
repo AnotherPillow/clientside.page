@@ -37,9 +37,10 @@ if (settings[2]) {
 
 document.querySelector('#copy')?.addEventListener('click', () => {
     const compressed = compressToEncodedURIComponent(textarea.value)
-    history.pushState(null, "", `#${compressed}`)
+    // history.pushState(null, "", `#${compressed}`)
     
-    navigator.clipboard.writeText(`${location.href.split('#')[0]}#${compressed}`)
+    // navigator.clipboard.writeText(`${location.href.split('#')[0]}#${compressed}`)
+    open(`${location.href.split('#')[0]}#${compressed}`, '_blank')
 })
 
 document.querySelector('#hide-top')?.addEventListener('click', () => {
@@ -67,7 +68,33 @@ document.querySelector('#disable-input')?.addEventListener('click', () => {
 const hash = location.hash.slice(1)
 if (hash) {
     const content = decompressFromEncodedURIComponent(hash)
-    textarea.value = content
+    
+    const sr = document.createElement('script')
+    sr.innerHTML = `
+    delete localStorage;
+    delete document.cookie;
+    delete indexedDB;
+    delete sessionStorage;
+    `
+    document.head.appendChild(sr)
+    
+    document.querySelector('html')!.innerHTML = content;
+
+    const st = document.createElement('style')
+    st.innerHTML = `html>body:before {
+        display: block;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        content: 'this is a client-sided dynamically rendered page using clientside.page - no data is stored on the server.';
+        font-size: 0.7em;
+        color: #333;
+        max-width: 100vw;
+        white-space: normal;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }`
+    document.head.appendChild(st)
 }
 
 function pushSettings() {

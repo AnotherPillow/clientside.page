@@ -1,5 +1,7 @@
-# paste.sarl
- 
-just another clientside paste service
+# clientside.page
 
-https://bun.com/docs/bundler/html-static#app-ts
+entirely clientside and url-defined html rendering.
+
+https://clientside.page
+
+derived from https://github.com/AnotherPillow/pastesarl/
