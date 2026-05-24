@@ -1,0 +1,127 @@
+@import './fonts.css';
+@import './theme.css';
+
+body, html {
+    /* make it so when it's animated the gap is coloured so it doesn't look like there's a weird gap */
+    background-color: var(--footer-bg);
+}
+
+@property --header-height {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 6em;
+}
+@property --footer-height {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 3em;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+
+    margin: 0;
+    color: var(--text-colour);
+
+    --header-height: 6em;
+    --footer-height: 3em;
+    --main-height: calc(100vh - var(--header-height) - var(--footer-height));
+    
+    transition: --header-height 0.3s ease, --footer-height 0.3s ease, height 0.3s ease;
+    
+    &:has(header.heightless) {
+        --header-height: 0em;
+    }
+    &:has(footer.heightless) {
+        --footer-height: 0em;
+    }
+}
+
+header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+
+    background-color: var(--header-bg);
+    height: var(--header-height);
+
+    overflow: hidden;
+    
+    #h-1 {
+        h1 {
+            margin-left: 20%
+        }
+    }
+
+    #h-2 {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+
+        button {
+            margin-right: 20%;
+
+            outline: none;
+            border: none;
+            background: transparent;
+            
+            cursor: pointer;
+            
+            text-decoration: underline;
+            text-decoration-color: var(--text-colour);;
+            color: var(--text-colour);
+
+            &:hover {
+                color: var(--link-hover);
+                text-decoration-color: var(--link-hover);
+            }
+
+            h3 {
+                margin: 0;
+            }
+        }
+    }
+}
+
+main {
+    background-color: var(--main-bg);
+    height: var(--main-height);
+
+    textarea {
+        resize: none;
+        box-sizing: border-box;
+        
+        width: 100%;
+        height: 100%;
+
+        background-color: transparent;
+        outline: none;
+        border: none;
+
+        color: var(--text-colour)
+    }
+}
+
+footer {
+    background-color: var(--footer-bg);
+    height: var(--footer-height);
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+
+    button {
+        outline: none;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+
+        color: var(--text-colour);
+
+        &:hover {
+            filter: brightness(0.8);
+        }
+    }
+}

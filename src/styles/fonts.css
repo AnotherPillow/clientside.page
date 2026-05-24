@@ -1,0 +1,12 @@
+body {
+    font-family: 'Martian Mono Variable', monospace;
+}
+
+textarea {
+    font-family: 'Chivo Mono Variable', monospace;
+    font-size: 1.1em;
+}
+
+.singlet {
+    font-family: 'Sniglet', system-ui;
+}

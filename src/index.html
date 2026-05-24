@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>paste.sarl</title>
+        <meta content="paste.sarl" property="og:title" />
+        <meta content="website" property="og:type" />
+        <meta content="just another clientside paste service" property="og:description" />
+        <script defer src="https://analytics.pillow.rocks/script.js" data-website-id="03d990f8-407c-4995-8eb1-8bc1ebdbea61"></script>
+    </head>
+    <body>
+        <header class="heightless">
+            <div id="h-1" class="h-component">
+                <h1 class="singlet">paste.sarl</h1>
+            </div>
+            <div id="h-2" class="h-component">
+                <button id="copy">
+                    <h3>Copy Link</h3>
+                </button>
+            </div>
+        </header>
+
+        <main>
+            <textarea id="text" autofocus spellcheck="false" placeholder="..."></textarea>
+        </main>
+
+        <footer class="heightless">
+            <button id="hide-top">
+                <i data-lucide="square-chevron-up"></i>
+            </button>
+            <button id="hide-bottom">
+                <i data-lucide="waves-arrow-down"></i>
+            </button>
+            <button id="disable-input">
+                <i data-lucide="keyboard-off"></i>
+            </button>
+        </footer>
+
+        <script src="./main.ts"></script>
+    </body>
+</html>
