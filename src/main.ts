@@ -93,6 +93,7 @@ if (hash) {
         white-space: normal;
         word-wrap: break-word;
         overflow-wrap: break-word;
+        z-index: 99999;
     }`
     document.head.appendChild(st)
 }
